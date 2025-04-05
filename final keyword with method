@@ -1,0 +1,19 @@
+class Parent {
+    public final void display() {
+        System.out.println("This is a final method and cannot be overridden.");
+    }
+}
+
+class Child extends Parent {
+    // Uncommenting the following code will give an error:
+    // public void display() { 
+    //     System.out.println("Trying to override the final method.");
+    // }
+}
+
+public class FinalMethodExample {
+    public static void main(String[] args) {
+        Parent obj = new Parent();
+        obj.display();  // Calls the final method
+    }
+}
