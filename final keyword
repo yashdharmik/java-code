@@ -1,0 +1,11 @@
+
+
+public class FinalVariableExample {
+    public static void main(String[] args) {
+        final int MAX_VALUE = 100;
+        
+        MAX_VALUE = 200; // This will give a compile-time error because MAX_VALUE is final
+        
+        System.out.println("The value of MAX_VALUE is: " + MAX_VALUE);
+    }
+}
