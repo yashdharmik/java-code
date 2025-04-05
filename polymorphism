@@ -1,0 +1,56 @@
+abstract class Transaction {
+    abstract void execute();
+}
+
+class DepositTransaction extends Transaction {
+    double amount;
+
+    DepositTransaction(double amount) {
+        this.amount = amount;
+    }
+
+    @Override
+    void execute() {
+        System.out.println("Depositing: " + amount);
+    }
+}
+
+class WithdrawTransaction extends Transaction {
+    double amount;
+
+    WithdrawTransaction(double amount) {
+        this.amount = amount;
+    }
+
+    @Override
+    void execute() {
+        System.out.println("Withdrawing: " + amount);
+    }
+}
+
+class TransferTransaction extends Transaction {
+    double amount;
+    String toAccount;
+
+    TransferTransaction(double amount, String toAccount) {
+        this.amount = amount;
+        this.toAccount = toAccount;
+    }
+
+    @Override
+    void execute() {
+        System.out.println("Transferring " + amount + " to account: " + toAccount);
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Transaction deposit = new DepositTransaction(500);
+        Transaction withdraw = new WithdrawTransaction(200);
+        Transaction transfer = new TransferTransaction(300, "Account2");
+
+        deposit.execute();
+        withdraw.execute();
+        transfer.execute();
+    }
+}
