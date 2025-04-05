@@ -1,0 +1,18 @@
+class MyThread extends Thread {
+    public MyThread() {
+        // Call the constructor of the parent class (Thread)
+        super("My Custom Thread");
+        System.out.println("Child class constructor executed");
+    }
+
+    public void run() {
+        System.out.println(Thread.currentThread().getName() + " is running");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        MyThread myThread = new MyThread(); // This invokes the MyThread constructor
+        myThread.start();
+    }
+}
