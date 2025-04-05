@@ -1,0 +1,26 @@
+
+// Superclass
+class Vehicle {
+    void startEngine(String type) {
+        System.out.println("Vehicle engine started with " + type);
+    }
+}
+
+// Subclass
+class Car extends Vehicle {
+    // Overriding the method in the subclass
+    @Override
+    void startEngine(String type) {
+        System.out.println("Car engine started with " + type);
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Vehicle vehicle = new Vehicle();
+        vehicle.startEngine("Fuel");  // Calls the superclass method
+
+        Vehicle car = new Car();  // Creating object of subclass
+        car.startEngine("Electric");  // Calls the overridden method in Car
+    }
+}
