@@ -1,0 +1,44 @@
+interface Vehicle {
+    void start();
+}
+
+interface Flyable {
+    void fly();
+}
+
+class Aircraft implements Vehicle, Flyable {
+    String model;
+
+    Aircraft(String model) {
+        this.model = model;
+    }
+
+    @Override
+    public void start() {
+        System.out.println(model + " is starting...");
+    }
+
+    @Override
+    public void fly() {
+        System.out.println(model + " is flying...");
+    }
+}
+
+class Airliner extends Aircraft {
+    Airliner(String model) {
+        super(model);
+    }
+
+    @Override
+    public void start() {
+        System.out.println("Airliner " + model + " is starting with multiple engines...");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Airliner airliner = new Airliner("Boeing 747");
+        airliner.start();
+        airliner.fly();
+    }
+}
