@@ -1,0 +1,41 @@
+abstract class Vehicle {
+    String brand;
+    int wheels;
+
+    Vehicle(String brand, int wheels) {
+        this.brand = brand;
+        this.wheels = wheels;
+    }
+
+    abstract void start();
+}
+
+class Car extends Vehicle {
+    Car(String brand) {
+        super(brand, 4);
+    }
+
+    void start() {
+        System.out.println("Car " + brand + " is starting.");
+    }
+}
+
+class Bike extends Vehicle {
+    Bike(String brand) {
+        super(brand, 2);
+    }
+
+    void start() {
+        System.out.println("Bike " + brand + " is starting.");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Vehicle car = new Car("Toyota");
+        Vehicle bike = new Bike("Harley");
+
+        car.start();
+        bike.start();
+    }
+}
