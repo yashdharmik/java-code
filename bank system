@@ -1,0 +1,62 @@
+// Base class
+class Account {
+    String accountHolderName;
+    double balance;
+
+    public Account(String name, double balance) {
+        this.accountHolderName = name;
+        this.balance = balance;
+    }
+
+    public void deposit(double amount) {
+        balance += amount;
+        System.out.println("Deposited: " + amount);
+    }
+
+    public void withdraw(double amount) {
+        if (amount > balance) {
+            System.out.println("Insufficient balance");
+        } else {
+            balance -= amount;
+            System.out.println("Withdrew: " + amount);
+        }
+    }
+
+    public void displayBalance() {
+        System.out.println("Balance: " + balance);
+    }
+}
+
+// Derived class
+class SavingsAccount extends Account {
+    double interestRate;
+
+    public SavingsAccount(String name, double balance, double interestRate) {
+        super(name, balance);
+        this.interestRate = interestRate;
+    }
+
+    public void addInterest() {
+        balance += (balance * interestRate / 100);
+        System.out.println("Interest added at rate: " + interestRate + "%");
+    }
+
+    @Override
+    public void displayBalance() {
+        super.displayBalance();
+        System.out.println("Interest Rate: " + interestRate + "%");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Account acc1 = new Account("John Doe", 1000);
+        acc1.deposit(500);
+        acc1.withdraw(300);
+        acc1.displayBalance();
+
+        SavingsAccount acc2 = new SavingsAccount("Jane Doe", 1500, 5);
+        acc2.addInterest();
+        acc2.displayBalance();
+    }
+}
