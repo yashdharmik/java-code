@@ -1,0 +1,19 @@
+class Calculator {
+    // Method to multiply two integers
+    int multiply(int a, int b) {
+        return a * b;
+    }
+
+    // Overloaded method to multiply two doubles
+    double multiply(double a, double b) {
+        return a * b;
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Calculator calculator = new Calculator();
+        System.out.println("Multiplication of integers: " + calculator.multiply(10, 20));  // Calls the int version
+        System.out.println("Multiplication of doubles: " + calculator.multiply(10.5, 20.5));  // Calls the double version
+    }
+}
