@@ -1,0 +1,39 @@
+// Abstract class
+abstract class Animal {
+    // Abstract method (no body)
+    abstract void sound();
+
+    // Concrete method
+    void eat() {
+        System.out.println("This animal is eating.");
+    }
+}
+
+// Subclass 1
+class Dog extends Animal {
+    // Implementing the abstract method sound()
+    void sound() {
+        System.out.println("The dog barks");
+    }
+}
+
+// Subclass 2
+class Cat extends Animal {
+    // Implementing the abstract method sound()
+    void sound() {
+        System.out.println("The cat meows");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Animal dog = new Dog();
+        Animal cat = new Cat();
+
+        dog.sound(); // The dog barks
+        dog.eat();   // This animal is eating.
+
+        cat.sound(); // The cat meows
+        cat.eat();   // This animal is eating.
+    }
+}
